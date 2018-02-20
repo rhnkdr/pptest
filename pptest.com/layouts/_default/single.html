@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <!-- Head -->
+{{ partial "header.html" . }}
+ <body>
+    <!-- Navigation Menu -->
+    {{ partial "navmenu.html" . }}
+
+     <!-- Content -->
+    <div class="container fc-pt-80">
+            <center>
+            <div class="spacer10"></div>
+            <h1>{{.Title}}</h1>
+            <div class="spacer10"></div>
+            </center>
+            <p>{{ .Content }}</p>
+           <div class="spacer50"></div>
+        </div>
+     <!-- Footer -->
+	{{ partial "footer.html" . }}
+	<!-- End Footer -->
+
+ </body>
+</html>
