@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Desktop Notification</title>
+  </head>
+  <body>
+    <a href="#" id="dnperm">Request permission</a>
+    <a href="#" id="dntrigger">Trigger</a>
+
+    <script>
+      var dnperm = document.getElementById('dnperm');
+      var dntrigger = document.getElementById('dntrigger');
+
+      dnperm.addEventListener('click', function(e){
+        e.preventDefault();
+
+        if(!window.Notification){
+          alert('Sorry, notification are not supported.');
+        } else {
+          Notification.requestPermission(function (p) {
+            console.log(p);
+
+            if (p === 'denied') {
+              alert('You have denied notification');
+            } else if (p === 'granted') {
+              alert('You have granted notification');
+            }
+          });
+        }
+      });
+
+      //simulate event
+      dntrigger.addEventListener('click', function(e){
+        var notify;
+
+        e.preventDefault();
+
+        if(Notification.permission === 'default'){
+          alert('Please allow notification before doing this.');
+        } else {
+          notify = new Notification('New message from Alex');
+        }
+      });
+    </script>
+  </body>
+</html>
